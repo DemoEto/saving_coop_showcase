@@ -1,19 +1,37 @@
 name: saving_coop_showcase
-description: "A new Flutter project."
-publish_to: 'none'
-version: 0.1.0+1
+description: "Portfolio Flutter BLoC App — Production Grade"
+publish_to: "none"
+version: 1.0.0+1
 
 environment:
-  sdk: ^3.11.5
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
+  bloc: ^8.1.4
+  equatable: ^2.0.5
+  intl: ^0.19.0
+  lucide_icons_flutter: ^3.1.13
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^6.0.0
+  flutter_lints: ^3.0.0
+  bloc_test: ^9.1.7
 
 flutter:
   uses-material-design: true
+
+  # Uncomment and add font files when ready:
+  # fonts:
+  #   - family: Prompt
+  #     fonts:
+  #       - asset: assets/fonts/Prompt-Regular.ttf
+  #       - asset: assets/fonts/Prompt-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/Prompt-SemiBold.ttf
+  #         weight: 600
+  #       - asset: assets/fonts/Prompt-Bold.ttf
+  #         weight: 700
