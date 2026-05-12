@@ -35,7 +35,7 @@ class MainApp extends StatelessWidget {
             );
           } else if (state.status == AuthStatus.authenticated) {
             navigatorKey.currentState?.pushNamedAndRemoveUntil(
-              AppRoutes.home,
+              AppRoutes.shell,
               (route) => false,
             );
           }

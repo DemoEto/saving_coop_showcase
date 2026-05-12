@@ -47,7 +47,7 @@ class SplashScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               const Text(
-                'Portfolio',
+                'Saving COOP',
                 style: TextStyle(
                   fontSize: AppFontSizes.h1,
                   fontWeight: FontWeight.bold,
@@ -57,7 +57,7 @@ class SplashScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                'Showcase your work',
+                '#showcase',
                 style: TextStyle(
                   fontSize: AppFontSizes.base,
                   color: Colors.white.withOpacity(0.8),

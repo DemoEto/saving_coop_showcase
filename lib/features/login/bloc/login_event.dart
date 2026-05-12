@@ -2,20 +2,20 @@ part of 'login_bloc.dart';
 
 abstract class LoginEvent {}
 
-class LoginSubmitted extends LoginEvent {
+class LoginSubmittedEvent extends LoginEvent {
   final String username;
   final String password;
-  LoginSubmitted({required this.username, required this.password});
+  LoginSubmittedEvent({required this.username, required this.password});
 }
 
-class LoginUsernameChanged extends LoginEvent {
+class LoginUsernameChangedEvent extends LoginEvent {
   final String username;
-  LoginUsernameChanged(this.username);
+  LoginUsernameChangedEvent(this.username);
 }
 
-class LoginPasswordChanged extends LoginEvent {
+class LoginPasswordChangedEvent extends LoginEvent {
   final String password;
-  LoginPasswordChanged(this.password);
+  LoginPasswordChangedEvent(this.password);
 }
 
-class LoginObscureToggled extends LoginEvent {}
+class LoginObscureToggledEvent extends LoginEvent {}

@@ -5,6 +5,6 @@ class SettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('general screen');
+    return const Text('setting screen');
   }
 }

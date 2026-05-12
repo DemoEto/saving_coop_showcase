@@ -4,32 +4,32 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(const LoginInitial()) {
-    on<LoginSubmitted>(_onLoginSubmitted);
-    on<LoginObscureToggled>(_onObscureToggled);
+  LoginBloc() : super(const LoginInitialState()) {
+    on<LoginSubmittedEvent>(_onLoginSubmitted);
+    on<LoginObscureToggledEvent>(_onObscureToggled);
   }
 
   Future<void> _onLoginSubmitted(
-    LoginSubmitted event,
+    LoginSubmittedEvent event,
     Emitter<LoginState> emit,
   ) async {
     final wasObscure = state.obscurePassword;
-    emit(LoginLoading(obscurePassword: wasObscure));
+    emit(LoginLoadingState(obscurePassword: wasObscure));
 
     try {
       // Simulate API call — replace with real repository in production
       await Future.delayed(const Duration(seconds: 2));
 
       if (event.username == 'admin' && event.password == '1234') {
-        emit(const LoginSuccess('dummy_token_123'));
+        emit(const LoginSuccessState('dummy_token_123'));
       } else {
-        emit(LoginFailure(
+        emit(LoginFailureState(
           'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง',
           obscurePassword: wasObscure,
         ));
       }
     } catch (e) {
-      emit(LoginFailure(
+      emit(LoginFailureState(
         'เกิดข้อผิดพลาด: ${e.toString()}',
         obscurePassword: wasObscure,
       ));
@@ -37,9 +37,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   void _onObscureToggled(
-    LoginObscureToggled event,
+    LoginObscureToggledEvent event,
     Emitter<LoginState> emit,
   ) {
-    emit(LoginObscureChanged(obscurePassword: !state.obscurePassword));
+    emit(LoginObscureChangedState(obscurePassword: !state.obscurePassword));
   }
 }

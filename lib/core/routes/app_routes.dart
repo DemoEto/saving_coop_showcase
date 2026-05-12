@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:saving_coop_showcase/features/home/presentation/screens/shell_screen.dart';
+import 'package:saving_coop_showcase/core/widgets/shell_screen.dart';
 import 'package:saving_coop_showcase/features/scan_qr/presentation/screens/scan_qr_screen.dart';
 import 'package:saving_coop_showcase/features/setting/presentation/screens/setting_screen.dart';
 

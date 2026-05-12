@@ -2,6 +2,10 @@ part of 'auth_bloc.dart';
 
 enum AuthStatus { unknown, authenticated, unauthenticated }
 
+  class _Undefined {
+    const _Undefined();
+  }
+
 class AuthState {
   final AuthStatus status;
   final String? accessToken;
@@ -15,12 +19,14 @@ class AuthState {
 
   AuthState copyWith({
     AuthStatus? status,
-    String? accessToken,
+    Object? accessToken = const _Undefined(),
     String? errorMessage,
   }) {
     return AuthState(
       status: status ?? this.status,
-      accessToken: accessToken ?? this.accessToken,
+      accessToken: accessToken is _Undefined
+        ? this.accessToken
+        : accessToken as String?,  
       errorMessage: errorMessage ?? this.errorMessage,
     );
   }

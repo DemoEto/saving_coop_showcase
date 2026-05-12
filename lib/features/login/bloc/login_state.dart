@@ -5,24 +5,24 @@ abstract class LoginState {
   const LoginState({this.obscurePassword = true});
 }
 
-class LoginInitial extends LoginState {
-  const LoginInitial() : super(obscurePassword: true);
+class LoginInitialState extends LoginState {
+  const LoginInitialState() : super(obscurePassword: true);
 }
 
-class LoginLoading extends LoginState {
-  const LoginLoading({super.obscurePassword});
+class LoginLoadingState extends LoginState {
+  const LoginLoadingState({super.obscurePassword});
 }
 
-class LoginSuccess extends LoginState {
+class LoginSuccessState extends LoginState {
   final String token;
-  const LoginSuccess(this.token);
+  const LoginSuccessState(this.token);
 }
 
-class LoginFailure extends LoginState {
+class LoginFailureState extends LoginState {
   final String error;
-  const LoginFailure(this.error, {super.obscurePassword});
+  const LoginFailureState(this.error, {super.obscurePassword});
 }
 
-class LoginObscureChanged extends LoginState {
-  const LoginObscureChanged({required super.obscurePassword});
+class LoginObscureChangedState extends LoginState {
+  const LoginObscureChangedState({required super.obscurePassword});
 }

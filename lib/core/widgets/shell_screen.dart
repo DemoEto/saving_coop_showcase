@@ -8,7 +8,7 @@ import 'package:saving_coop_showcase/core/routes/app_routes.dart';
 import 'package:saving_coop_showcase/core/theme/colors.dart';
 
 // Import แต่ละ Tab Screen
-import '../widgets/home_title_widget.dart';
+import '../../features/home/presentation/widgets/home_title_widget.dart';
 
 class MainShellScreen extends StatefulWidget {
   const MainShellScreen({super.key});

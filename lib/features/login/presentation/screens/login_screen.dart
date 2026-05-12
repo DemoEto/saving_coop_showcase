@@ -30,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _submit(BuildContext context) {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<LoginBloc>().add(
-            LoginSubmitted(
+            LoginSubmittedEvent(
               username: _userController.text.trim(),
               password: _passController.text.trim(),
             ),
@@ -44,11 +44,11 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: AppColors.background,
       body: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
-          if (state is LoginSuccess) {
+          if (state is LoginSuccessState) {
             context.read<AuthBloc>().add(AuthStatusChanged(true));
             Navigator.pushReplacementNamed(context, AppRoutes.shell);
           }
-          if (state is LoginFailure) {
+          if (state is LoginFailureState) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(state.error),
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
           }
         },
         builder: (context, state) {
-          final isLoading = state is LoginLoading;
+          final isLoading = state is LoginLoadingState;
           final obscure = state.obscurePassword;
 
           return SafeArea(
@@ -153,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           onPressed: () => context
                               .read<LoginBloc>()
-                              .add(LoginObscureToggled()),
+                              .add(LoginObscureToggledEvent()),
                         ),
                       ),
                       validator: (v) => (v == null || v.trim().isEmpty)
@@ -185,14 +185,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 16),
                     AnimatedSwitcher(
                       duration: const Duration(milliseconds: 200),
-                      child: isLoading
-                          ? const Center(
-                              key: ValueKey('loading'),
-                              child: CircularProgressIndicator(),
-                            )
-                          : ElevatedButton(
+                      child: ElevatedButton(
                               key: const ValueKey('btn'),
-                              onPressed: () => _submit(context),
+                              onPressed: (){},
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   foregroundColor: AppColors.blueDark3,
