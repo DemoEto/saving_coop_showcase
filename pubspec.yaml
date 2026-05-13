@@ -23,7 +23,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
+  assets:
+    - assets/
+    - assets/images/
   # Uncomment and add font files when ready:
   # fonts:
   #   - family: Prompt

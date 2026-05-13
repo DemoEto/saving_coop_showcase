@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:saving_coop_showcase/core/theme/colors.dart';
+import 'package:saving_coop_showcase/features/home/presentation/widgets/wallet_widget.dart';
 
 import '../../bloc/home_bloc.dart';
 
@@ -56,15 +57,20 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         }
-
+        // final height = MediaQuery.of(context).size.height;
+        final width = MediaQuery.of(context).size.width;
         return RefreshIndicator(
           onRefresh: () async => context.read<HomeBloc>().add(HomeFetchEvent()),
-          child: const SingleChildScrollView(
-            physics: AlwaysScrollableScrollPhysics(),
-            padding: EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [Text('Home screen')],
+              children: <Widget>[
+                Image.asset("assets/images/banner3.jpg",width: width * .95,),
+                const SizedBox(height: 10,),
+                const WalletWidget(),
+              ],
             ),
           ),
         );
