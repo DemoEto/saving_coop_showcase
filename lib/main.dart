@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/bloc/locale/locale_bloc.dart';
 import 'core/bloc/navigation/navigation_bloc.dart';
+import 'core/l10n/app_localizations.dart';
 import 'core/routes/app_routes.dart';
 import 'core/bloc/auth/auth_bloc.dart';
 import 'core/theme/app_theme.dart';
@@ -25,6 +27,9 @@ class MainApp extends StatelessWidget {
           create: (context) => AuthBloc()..add(AuthAppStarted()),
         ),
         BlocProvider(create: (_) => NavigationBloc()),
+        BlocProvider(
+          create: (_) => LocaleBloc()..add(LocaleInitEvent()),
+        ),
       ],
       child: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
@@ -40,13 +45,23 @@ class MainApp extends StatelessWidget {
             );
           }
         },
-        child: MaterialApp(
-          title: 'Portfolio App',
-          debugShowCheckedModeBanner: false,
-          navigatorKey: navigatorKey,
-          theme: AppTheme.lightTheme,
-          initialRoute: AppRoutes.splash,
-          onGenerateRoute: AppRoutes.onGenerateRoute,
+        child: BlocBuilder<LocaleBloc, LocaleState>(
+          builder: (context, localeState) {
+            return MaterialApp(
+              title: 'Portfolio App',
+              debugShowCheckedModeBanner: false,
+              navigatorKey: navigatorKey,
+              locale: localeState.locale,
+              supportedLocales: const [
+                Locale('th'),
+                Locale('en'),
+              ],
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              theme: AppTheme.lightTheme,
+              initialRoute: AppRoutes.splash,
+              onGenerateRoute: AppRoutes.onGenerateRoute,
+            );
+          },
         ),
       ),
     );

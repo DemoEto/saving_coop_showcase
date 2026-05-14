@@ -9,17 +9,23 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.6
-  bloc: ^8.1.4
+  flutter_bloc: ^9.1.1
+  bloc: ^9.2.1
   equatable: ^2.0.5
-  intl: ^0.19.0
+  intl: ^0.20.2
   lucide_icons_flutter: ^3.1.13
+  flutter_localization: ^0.4.0
+  flutter_gen: ^5.14.1
+  shared_preferences: ^2.5.5
+  lottie: ^3.3.3
+  flutter_easyloading: ^3.0.5
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
-  bloc_test: ^9.1.7
+  flutter_lints: ^6.0.0
+  bloc_test: ^10.0.0
 
 flutter:
   uses-material-design: true
