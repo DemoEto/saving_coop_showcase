@@ -9,9 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # BLoC
   flutter_bloc: ^9.1.1
   bloc: ^9.2.1
   equatable: ^2.0.5
+
   intl: ^0.20.2
   lucide_icons_flutter: ^3.1.13
   flutter_localization: ^0.4.0
@@ -19,11 +21,20 @@ dependencies:
   shared_preferences: ^2.5.5
   lottie: ^3.3.3
   flutter_easyloading: ^3.0.5
+  # Camaera / Scanner
+  mobile_scanner: ^7.2.0
+  # Functional programming
+  dartz: ^0.10.1
+  # Permissions
+  permission_handler: ^12.0.1
+  # DI
+  get_it: ^9.2.1
   
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mocktail: ^1.0.5
   flutter_lints: ^6.0.0
   bloc_test: ^10.0.0
 

@@ -62,7 +62,9 @@ class _MainShellScreenState extends State<MainShellScreen> {
           onWillPop: () => _onWillPop(currentIndex),
           child: Scaffold(
             backgroundColor: AppColors.background,
-            appBar: HomeTitleWidget(
+            appBar: currentIndex == 2 || currentIndex == 3
+            ?null
+            :HomeTitleWidget(
               userName: 'Admin',
               onNotificationTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(

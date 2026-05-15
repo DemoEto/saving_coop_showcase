@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:saving_coop_showcase/core/widgets/shell_screen.dart';
-import 'package:saving_coop_showcase/features/scan_qr/presentation/screens/scan_qr_screen.dart';
+
+import '../../core/widgets/shell_screen.dart';
+
 import 'package:saving_coop_showcase/features/setting/presentation/screens/setting_screen.dart';
 
 import '../../core/bloc/auth/auth_bloc.dart';
 import '../../features/general/presentation/screens/general_screen.dart';
 import '../../features/home/home.dart';
 import '../../features/login/login.dart';
+import '../../features/qr_scanner/qr_scanner.dart';
+import '../../injection_container.dart';
 import '../widgets/splash_screen.dart';
 
 class AppRoutes {
@@ -71,7 +74,11 @@ class AppRoutes {
         // );
 
       case AppTabs.scan:
-        return const ScanQrScreen();
+        // return const QrScannerScreen();
+        return BlocProvider(
+          create: (_) => sl<QrScannerBloc>(),
+          child: const QrScannerScreen(),
+        );
 
       case AppTabs.settings:
         return const SettingScreen();

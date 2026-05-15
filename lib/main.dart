@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:saving_coop_showcase/injection_container.dart';
 
 import 'core/bloc/locale/locale_bloc.dart';
 import 'core/bloc/navigation/navigation_bloc.dart';
@@ -10,6 +11,7 @@ import 'core/theme/app_theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  setupDependencies();
   runApp(const MainApp());
 }
 
