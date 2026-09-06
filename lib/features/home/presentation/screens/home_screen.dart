@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:saving_coop_showcase/core/theme/colors.dart';
 import 'package:saving_coop_showcase/features/home/presentation/widgets/wallet_widget.dart';
 
-import '../../bloc/home_bloc.dart';
+import '../bloc/home_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

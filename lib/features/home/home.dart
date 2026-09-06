@@ -1,2 +1,2 @@
 export 'presentation/screens/home_screen.dart';
-export 'bloc/home_bloc.dart';
+export 'presentation/bloc/home_bloc.dart';
