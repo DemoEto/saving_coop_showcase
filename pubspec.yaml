@@ -16,7 +16,6 @@ dependencies:
 
   intl: ^0.20.2
   lucide_icons_flutter: ^3.1.13
-  flutter_localization: ^0.4.0
   flutter_gen: ^5.14.1
   shared_preferences: ^2.5.5
   lottie: ^3.3.3
@@ -29,6 +28,8 @@ dependencies:
   permission_handler: ^12.0.1
   # DI
   get_it: ^9.2.1
+  flutter_localizations:
+    sdk: flutter
   
 
 dev_dependencies:
