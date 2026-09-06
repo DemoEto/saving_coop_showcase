@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AppFontFamilies {
   static const primary = 'Prompt';
   static const headersection = 'Sarabun';
@@ -13,3 +15,12 @@ class AppFontSizes {
   static const double base = 14;
   static const double mini = 12.5;
 }
+
+class AppFontWeight {
+  static const FontWeight light = FontWeight.w300;
+  static const FontWeight normal = FontWeight.w400;
+  static const FontWeight bold = FontWeight.bold;
+  static const FontWeight heavyBold = FontWeight.w900;
+}
+
+class AppFontResponsiveSizes {}
